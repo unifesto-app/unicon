@@ -23,6 +23,7 @@
     "unifesto"
   ],
   "dependencies": {
+    "fs": "^0.0.1-security",
     "sharp": "^0.34.5"
   }
 }
