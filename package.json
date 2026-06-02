@@ -1,6 +1,6 @@
 {
   "name": "@unifesto/unicon",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Cross-platform icon library for React, Next.js, Expo and React Native",
   "author": "Unifesto Private Limited",
   "license": "UNLICENSED",
