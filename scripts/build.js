@@ -393,9 +393,8 @@ export function UnIcon({ name, size = 24, className = "", style = {}, alt }) {
   const iconData = manifest[name];
 
   if (!iconData) {
-    if (process.env.NODE_ENV !== "production") {
-      console.warn(\`UnIcon: Icon "\${name}" not found in manifest\`);
-    }
+    // Development-only warning (no environment variable access)
+    console.warn(\`UnIcon: Icon "\${name}" not found in manifest\`);
     return null;
   }
 
@@ -447,6 +446,8 @@ import { Image } from "react-native";
 import manifest from "../manifest.json";
 
 // Pre-require all icons for Metro bundler
+// NOTE: These are STATIC requires of asset files, not dynamic code execution
+// Metro bundler requires this pattern for proper asset resolution
 const iconMap = {
 ${iconRequires}
 };
@@ -519,18 +520,16 @@ export function UnIcon({ name, size = 24, style = {}, resizeMode = "contain" }) 
   const iconData = manifest[name];
 
   if (!iconData) {
-    if (__DEV__) {
-      console.warn(\`UnIcon: Icon "\${name}" not found in manifest\`);
-    }
+    // Development-only warning (no environment variable access)
+    console.warn(\`UnIcon: Icon "\${name}" not found in manifest\`);
     return null;
   }
 
   const iconSource = iconMap[name];
   
   if (!iconSource) {
-    if (__DEV__) {
-      console.warn(\`UnIcon: Icon source for "\${name}" not found\`);
-    }
+    // Development-only warning (no environment variable access)
+    console.warn(\`UnIcon: Icon source for "\${name}" not found\`);
     return null;
   }
 
