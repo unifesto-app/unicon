@@ -1,0 +1,174 @@
+{
+  "account": {
+    "path": "icons/account.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "account",
+    "tags": [
+      "user",
+      "profile",
+      "person"
+    ]
+  },
+  "appearance": {
+    "path": "icons/appearance.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": [
+      "theme",
+      "display",
+      "settings"
+    ]
+  },
+  "apple": {
+    "path": "icons/apple.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "social",
+    "tags": [
+      "brand",
+      "logo",
+      "ios"
+    ]
+  },
+  "at": {
+    "path": "icons/at.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "account",
+    "tags": [
+      "username",
+      "handle",
+      "email"
+    ]
+  },
+  "google": {
+    "path": "icons/google.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "social",
+    "tags": [
+      "brand",
+      "logo",
+      "gmail"
+    ]
+  },
+  "instagram": {
+    "path": "icons/instagram.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "social",
+    "tags": [
+      "brand",
+      "logo",
+      "photo"
+    ]
+  },
+  "mail": {
+    "path": "icons/mail.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "account",
+    "tags": [
+      "email",
+      "message",
+      "contact"
+    ]
+  },
+  "notification": {
+    "path": "icons/notification.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": [
+      "alert",
+      "bell",
+      "message"
+    ]
+  },
+  "permission": {
+    "path": "icons/permission.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": [
+      "lock",
+      "security",
+      "access"
+    ]
+  },
+  "phone": {
+    "path": "icons/phone.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "account",
+    "tags": [
+      "mobile",
+      "call",
+      "contact"
+    ]
+  },
+  "rate": {
+    "path": "icons/rate.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "commerce",
+    "tags": [
+      "star",
+      "review",
+      "rating"
+    ]
+  },
+  "signout": {
+    "path": "icons/signout.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "account",
+    "tags": [
+      "logout",
+      "exit",
+      "leave"
+    ]
+  },
+  "support": {
+    "path": "icons/support.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": [
+      "help",
+      "question",
+      "info"
+    ]
+  },
+  "verified-blue": {
+    "path": "icons/verified-blue.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
+  "verified-green": {
+    "path": "icons/verified-green.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  }
+}
