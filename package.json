@@ -1,6 +1,6 @@
 {
   "name": "@unifesto/unicon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cross-platform icon library for React, Next.js, Expo and React Native",
   "author": "Unifesto Private Limited",
   "license": "UNLICENSED",
@@ -42,7 +42,7 @@
     "rebuild": "npm run clean && npm run build",
     "prepublishOnly": "npm run build",
     "pack:test": "npm pack --dry-run",
-    "version": "npm run build && git add -A dist",
+    "version": "npm run build && git add -f -A dist",
     "postversion": "git push && git push --tags"
   },
   "keywords": [
