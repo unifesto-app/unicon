@@ -1,29 +1,92 @@
 {
   "name": "@unifesto/unicon",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Cross-platform icon library for React, Next.js, Expo and React Native",
+  "author": "Unifesto Private Limited",
   "license": "UNLICENSED",
+  "private": false,
   "type": "module",
+  "main": "./dist/manifest.json",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
   "exports": {
-    "./react": "./dist/react/index.js",
-    "./react-native": "./dist/react-native/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/manifest.json"
+    },
+    "./manifest": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/manifest.json"
+    },
+    "./react": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/react/index.js",
+      "default": "./dist/react/index.js"
+    },
+    "./react-native": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/react-native/index.js",
+      "default": "./dist/react-native/index.js"
+    },
+    "./icons/*": "./dist/icons/*",
+    "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build",
+    "prepublishOnly": "npm run build",
+    "pack:test": "npm pack --dry-run",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "icons",
+    "icon-library",
     "react",
+    "react-icons",
     "nextjs",
     "expo",
     "react-native",
-    "unifesto"
+    "react-native-icons",
+    "unifesto",
+    "cross-platform",
+    "typescript",
+    "ui",
+    "components",
+    "assets",
+    "png"
   ],
-  "dependencies": {
-    "fs": "^0.0.1-security",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
     "sharp": "^0.34.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unifesto/unicon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unifesto/unicon/issues"
+  },
+  "homepage": "https://github.com/unifesto/unicon#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
   }
 }
