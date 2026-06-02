@@ -1,0 +1,28 @@
+{
+  "name": "@unifesto/unicon",
+  "version": "0.1.1",
+  "description": "Cross-platform icon library for React, Next.js, Expo and React Native",
+  "license": "UNLICENSED",
+  "type": "module",
+  "exports": {
+    "./react": "./dist/react/index.js",
+    "./react-native": "./dist/react-native/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "keywords": [
+    "icons",
+    "react",
+    "nextjs",
+    "expo",
+    "react-native",
+    "unifesto"
+  ],
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
