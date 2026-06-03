@@ -47,6 +47,22 @@
       "email"
     ]
   },
+  "calendar": {
+    "path": "icons/calendar.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
+  "camera": {
+    "path": "icons/camera.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
   "google": {
     "path": "icons/google.png",
     "format": "png",
@@ -82,6 +98,14 @@
       "message",
       "contact"
     ]
+  },
+  "megaphone": {
+    "path": "icons/megaphone.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
   },
   "notification": {
     "path": "icons/notification.png",
@@ -119,6 +143,22 @@
       "contact"
     ]
   },
+  "photo": {
+    "path": "icons/photo.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
+  "profile": {
+    "path": "icons/profile.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
   "rate": {
     "path": "icons/rate.png",
     "format": "png",
@@ -154,6 +194,14 @@
       "question",
       "info"
     ]
+  },
+  "tag": {
+    "path": "icons/tag.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
   },
   "verified-blue": {
     "path": "icons/verified-blue.png",
