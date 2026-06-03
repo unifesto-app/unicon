@@ -63,6 +63,30 @@
     "category": "system",
     "tags": []
   },
+  "file-text": {
+    "path": "icons/file-text.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
+  "github": {
+    "path": "icons/github.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
+  "globe": {
+    "path": "icons/globe.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
   "google": {
     "path": "icons/google.png",
     "format": "png",
@@ -86,6 +110,14 @@
       "logo",
       "photo"
     ]
+  },
+  "linkedin": {
+    "path": "icons/linkedin.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
   },
   "mail": {
     "path": "icons/mail.png",
