@@ -163,6 +163,14 @@
       "access"
     ]
   },
+  "person": {
+    "path": "icons/person.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
   "phone": {
     "path": "icons/phone.png",
     "format": "png",

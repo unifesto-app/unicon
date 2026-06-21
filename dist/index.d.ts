@@ -25,6 +25,7 @@ export type IconName =
   | "megaphone"
   | "notification"
   | "permission"
+  | "person"
   | "phone"
   | "photo"
   | "profile"

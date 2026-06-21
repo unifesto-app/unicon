@@ -121,6 +121,7 @@ export const iconNames = [
   "megaphone",
   "notification",
   "permission",
+  "person",
   "phone",
   "photo",
   "profile",
