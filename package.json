@@ -43,7 +43,8 @@
     "prepublishOnly": "npm run build",
     "pack:test": "npm pack --dry-run",
     "version": "npm run build && git add -f -A dist",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "patch": "git add . && git commit -m 'update' && git push origin main && git version patch"
   },
   "keywords": [
     "icons",
