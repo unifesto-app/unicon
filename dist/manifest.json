@@ -235,6 +235,14 @@
     "category": "system",
     "tags": []
   },
+  "unifesto": {
+    "path": "icons/unifesto.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
   "verified-blue": {
     "path": "icons/verified-blue.png",
     "format": "png",
@@ -245,6 +253,14 @@
   },
   "verified-green": {
     "path": "icons/verified-green.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
+  "x": {
+    "path": "icons/x.png",
     "format": "png",
     "width": 1024,
     "height": 1024,

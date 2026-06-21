@@ -34,8 +34,10 @@ const iconMap = {
   "signout": require("../icons/signout.png"),
   "support": require("../icons/support.png"),
   "tag": require("../icons/tag.png"),
+  "unifesto": require("../icons/unifesto.png"),
   "verified-blue": require("../icons/verified-blue.png"),
-  "verified-green": require("../icons/verified-green.png")
+  "verified-green": require("../icons/verified-green.png"),
+  "x": require("../icons/x.png")
 };
 
 /**
@@ -162,8 +164,10 @@ export const iconNames = [
   "signout",
   "support",
   "tag",
+  "unifesto",
   "verified-blue",
-  "verified-green"
+  "verified-green",
+  "x"
 ];
 
 export default UnIcon;

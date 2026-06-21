@@ -128,8 +128,10 @@ export const iconNames = [
   "signout",
   "support",
   "tag",
+  "unifesto",
   "verified-blue",
-  "verified-green"
+  "verified-green",
+  "x"
 ];
 
 export default UnIcon;

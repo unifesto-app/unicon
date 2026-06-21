@@ -32,8 +32,10 @@ export type IconName =
   | "signout"
   | "support"
   | "tag"
+  | "unifesto"
   | "verified-blue"
-  | "verified-green";
+  | "verified-green"
+  | "x";
 
 /**
  * Icon categories for organization and search
