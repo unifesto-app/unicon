@@ -30,6 +30,7 @@ export type IconName =
   | "person"
   | "phone"
   | "photo"
+  | "plus"
   | "profile"
   | "qr"
   | "rate"

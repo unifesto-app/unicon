@@ -207,6 +207,14 @@
     "category": "system",
     "tags": []
   },
+  "plus": {
+    "path": "icons/plus.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
   "profile": {
     "path": "icons/profile.png",
     "format": "png",

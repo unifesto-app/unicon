@@ -126,6 +126,7 @@ export const iconNames = [
   "person",
   "phone",
   "photo",
+  "plus",
   "profile",
   "qr",
   "rate",
