@@ -99,6 +99,22 @@
       "gmail"
     ]
   },
+  "hammer": {
+    "path": "icons/hammer.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
+  "help": {
+    "path": "icons/help.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
   "instagram": {
     "path": "icons/instagram.png",
     "format": "png",
@@ -193,6 +209,14 @@
   },
   "profile": {
     "path": "icons/profile.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
+  "qr": {
+    "path": "icons/qr.png",
     "format": "png",
     "width": 1024,
     "height": 1024,
