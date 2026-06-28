@@ -135,6 +135,14 @@
     "category": "system",
     "tags": []
   },
+  "list": {
+    "path": "icons/list.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
   "mail": {
     "path": "icons/mail.png",
     "format": "png",
@@ -146,6 +154,14 @@
       "message",
       "contact"
     ]
+  },
+  "maps": {
+    "path": "icons/maps.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
   },
   "megaphone": {
     "path": "icons/megaphone.png",
