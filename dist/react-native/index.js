@@ -42,6 +42,7 @@ const iconMap = {
   "support": require("../icons/support.png"),
   "tag": require("../icons/tag.png"),
   "unifesto": require("../icons/unifesto.png"),
+  "update": require("../icons/update.png"),
   "verified-blue": require("../icons/verified-blue.png"),
   "verified-green": require("../icons/verified-green.png"),
   "x": require("../icons/x.png")
@@ -179,6 +180,7 @@ export const iconNames = [
   "support",
   "tag",
   "unifesto",
+  "update",
   "verified-blue",
   "verified-green",
   "x"

@@ -136,6 +136,7 @@ export const iconNames = [
   "support",
   "tag",
   "unifesto",
+  "update",
   "verified-blue",
   "verified-green",
   "x"

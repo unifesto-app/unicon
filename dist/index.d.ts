@@ -40,6 +40,7 @@ export type IconName =
   | "support"
   | "tag"
   | "unifesto"
+  | "update"
   | "verified-blue"
   | "verified-green"
   | "x";

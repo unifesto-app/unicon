@@ -299,6 +299,14 @@
     "category": "system",
     "tags": []
   },
+  "update": {
+    "path": "icons/update.png",
+    "format": "png",
+    "width": 1024,
+    "height": 1024,
+    "category": "system",
+    "tags": []
+  },
   "verified-blue": {
     "path": "icons/verified-blue.png",
     "format": "png",
