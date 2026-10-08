@@ -18,7 +18,11 @@ if (names.length === 0 && !process.stdin.isTTY) names = fs.readFileSync(0, "utf8
 
 // "CalendarBlank" / "CalendarBlankIcon" / "calendar-blank" -> "calendar-blank"
 const toKebab = (n) =>
-  n.replace(/Icon$/, "").replace(/([a-z0-9])([A-Z])|([A-Z])([A-Z][a-z])/g, (_, a, b, c, d) => a ? `${a}-${b}` : `${c}-${d}`).toLowerCase();
+  n
+    .replace(/Icon$/, "")
+    .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+    .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
+    .toLowerCase();
 
 let copied = 0, skipped = 0;
 const missing = [];

@@ -5,6 +5,15 @@ All notable changes to UnIcon will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-10-08
+
+### Added
+- 47 glyphs used by the Unifesto websites (217 total).
+
+### Changed
+- One module per glyph (`dist/glyphs/<name>.js`, `dist/<platform>/icons/<name>.js`), so tree-shaking bundlers like Next.js ship only the glyphs a page imports. `UnGlyph` (lookup by name) lives in its own module and pulls in every glyph only where it's used.
+- `Icon` type is now `React.FC<IconProps>`, matching Phosphor.
+
 ## [2.0.0] - 2026-10-08
 
 ### Removed (breaking)

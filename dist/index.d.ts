@@ -7,11 +7,17 @@
 export type GlyphName =
   | "android-logo"
   | "apple-logo"
+  | "archive"
+  | "arrow-bend-down-right"
   | "arrow-circle-up"
+  | "arrow-clockwise"
   | "arrow-counter-clockwise"
   | "arrow-down"
+  | "arrow-down-left"
+  | "arrow-left"
   | "arrow-right"
   | "arrow-square-out"
+  | "arrow-u-up-left"
   | "arrow-up"
   | "arrow-up-right"
   | "arrows-clockwise"
@@ -19,10 +25,12 @@ export type GlyphName =
   | "article"
   | "at"
   | "bank"
+  | "battery-full"
   | "bed"
   | "bell"
   | "bell-ringing"
   | "bell-simple"
+  | "book-open"
   | "briefcase"
   | "broadcast"
   | "buildings"
@@ -35,9 +43,12 @@ export type GlyphName =
   | "caret-down"
   | "caret-left"
   | "caret-right"
+  | "caret-up"
+  | "cell-signal-full"
   | "certificate"
   | "chart-bar"
   | "chart-line-up"
+  | "chat-circle"
   | "chat-circle-dots"
   | "chats-circle"
   | "check"
@@ -45,39 +56,56 @@ export type GlyphName =
   | "circle"
   | "circle-dashed"
   | "circle-half"
+  | "circle-notch"
   | "clipboard-text"
   | "clock"
   | "clock-counter-clockwise"
   | "cloud-arrow-down"
   | "cloud-arrow-up"
   | "coffee"
+  | "coins"
   | "confetti"
+  | "copy"
   | "copy-simple"
   | "credit-card"
   | "crown"
   | "currency-inr"
+  | "cursor-click"
+  | "database"
+  | "desktop"
   | "device-mobile"
   | "door-open"
   | "dots-three"
+  | "download"
   | "download-simple"
+  | "drop"
   | "envelope"
   | "envelope-simple"
   | "export"
   | "eye"
   | "eye-slash"
+  | "file-arrow-down"
   | "file-csv"
   | "file-pdf"
   | "file-text"
   | "flag"
   | "flashlight"
+  | "flask"
+  | "floppy-disk"
+  | "flow-arrow"
+  | "fork-knife"
   | "funnel"
   | "gavel"
+  | "gear"
   | "gear-six"
   | "gender-intersex"
+  | "gift"
   | "github-logo"
   | "globe"
+  | "globe-simple"
   | "google-logo"
   | "hammer"
+  | "hand-arrow-up"
   | "hand-coins"
   | "handshake"
   | "hash"
@@ -96,11 +124,15 @@ export type GlyphName =
   | "link-break"
   | "link-simple"
   | "linkedin-logo"
+  | "list"
   | "list-bullets"
+  | "list-checks"
   | "list-numbers"
   | "lock"
+  | "lock-key"
   | "lock-open"
   | "lock-simple"
+  | "magic-wand"
   | "magnifying-glass"
   | "map-pin"
   | "medal"
@@ -108,10 +140,13 @@ export type GlyphName =
   | "megaphone-simple"
   | "microphone"
   | "microphone-slash"
+  | "microsoft-outlook-logo"
   | "minus"
+  | "money"
   | "moon"
   | "navigation-arrow"
   | "note-pencil"
+  | "package"
   | "paint-brush"
   | "paper-plane-right"
   | "paper-plane-tilt"
@@ -126,12 +161,16 @@ export type GlyphName =
   | "plus"
   | "plus-circle"
   | "power"
+  | "prohibit"
   | "pulse"
   | "qr-code"
   | "question"
   | "quotes"
   | "receipt"
+  | "record"
   | "rocket-launch"
+  | "scan"
+  | "scan-smiley"
   | "scissors"
   | "seal-check"
   | "seal-percent"
@@ -140,7 +179,9 @@ export type GlyphName =
   | "shield-warning"
   | "sign-in"
   | "sign-out"
+  | "sliders-horizontal"
   | "sparkle"
+  | "spinner"
   | "squares-four"
   | "stack"
   | "star"
@@ -150,12 +191,16 @@ export type GlyphName =
   | "terminal"
   | "text-aa"
   | "text-align-left"
+  | "text-t"
   | "ticket"
   | "timer"
   | "trash"
   | "tray"
   | "tree-structure"
+  | "trend-down"
+  | "trend-up"
   | "trophy"
+  | "upload-simple"
   | "user"
   | "user-circle"
   | "user-focus"
@@ -170,7 +215,9 @@ export type GlyphName =
   | "wallet"
   | "warning"
   | "warning-circle"
+  | "webhooks-logo"
   | "whatsapp-logo"
+  | "wifi-high"
   | "wifi-slash"
   | "x"
   | "x-circle"
@@ -198,7 +245,7 @@ export interface IconProps {
 }
 
 /** A glyph component, e.g. `Ticket` */
-export type Icon = React.ComponentType<IconProps>;
+export type Icon = React.FC<IconProps>;
 
 export declare const UnGlyph: React.FC<IconProps & { name: GlyphName }>;
 export declare const glyphNames: GlyphName[];
@@ -207,16 +254,28 @@ export declare const AndroidLogo: Icon;
 export declare const AndroidLogoIcon: Icon;
 export declare const AppleLogo: Icon;
 export declare const AppleLogoIcon: Icon;
+export declare const Archive: Icon;
+export declare const ArchiveIcon: Icon;
+export declare const ArrowBendDownRight: Icon;
+export declare const ArrowBendDownRightIcon: Icon;
 export declare const ArrowCircleUp: Icon;
 export declare const ArrowCircleUpIcon: Icon;
+export declare const ArrowClockwise: Icon;
+export declare const ArrowClockwiseIcon: Icon;
 export declare const ArrowCounterClockwise: Icon;
 export declare const ArrowCounterClockwiseIcon: Icon;
 export declare const ArrowDown: Icon;
 export declare const ArrowDownIcon: Icon;
+export declare const ArrowDownLeft: Icon;
+export declare const ArrowDownLeftIcon: Icon;
+export declare const ArrowLeft: Icon;
+export declare const ArrowLeftIcon: Icon;
 export declare const ArrowRight: Icon;
 export declare const ArrowRightIcon: Icon;
 export declare const ArrowSquareOut: Icon;
 export declare const ArrowSquareOutIcon: Icon;
+export declare const ArrowUUpLeft: Icon;
+export declare const ArrowUUpLeftIcon: Icon;
 export declare const ArrowUp: Icon;
 export declare const ArrowUpIcon: Icon;
 export declare const ArrowUpRight: Icon;
@@ -231,6 +290,8 @@ export declare const At: Icon;
 export declare const AtIcon: Icon;
 export declare const Bank: Icon;
 export declare const BankIcon: Icon;
+export declare const BatteryFull: Icon;
+export declare const BatteryFullIcon: Icon;
 export declare const Bed: Icon;
 export declare const BedIcon: Icon;
 export declare const Bell: Icon;
@@ -239,6 +300,8 @@ export declare const BellRinging: Icon;
 export declare const BellRingingIcon: Icon;
 export declare const BellSimple: Icon;
 export declare const BellSimpleIcon: Icon;
+export declare const BookOpen: Icon;
+export declare const BookOpenIcon: Icon;
 export declare const Briefcase: Icon;
 export declare const BriefcaseIcon: Icon;
 export declare const Broadcast: Icon;
@@ -263,12 +326,18 @@ export declare const CaretLeft: Icon;
 export declare const CaretLeftIcon: Icon;
 export declare const CaretRight: Icon;
 export declare const CaretRightIcon: Icon;
+export declare const CaretUp: Icon;
+export declare const CaretUpIcon: Icon;
+export declare const CellSignalFull: Icon;
+export declare const CellSignalFullIcon: Icon;
 export declare const Certificate: Icon;
 export declare const CertificateIcon: Icon;
 export declare const ChartBar: Icon;
 export declare const ChartBarIcon: Icon;
 export declare const ChartLineUp: Icon;
 export declare const ChartLineUpIcon: Icon;
+export declare const ChatCircle: Icon;
+export declare const ChatCircleIcon: Icon;
 export declare const ChatCircleDots: Icon;
 export declare const ChatCircleDotsIcon: Icon;
 export declare const ChatsCircle: Icon;
@@ -283,6 +352,8 @@ export declare const CircleDashed: Icon;
 export declare const CircleDashedIcon: Icon;
 export declare const CircleHalf: Icon;
 export declare const CircleHalfIcon: Icon;
+export declare const CircleNotch: Icon;
+export declare const CircleNotchIcon: Icon;
 export declare const ClipboardText: Icon;
 export declare const ClipboardTextIcon: Icon;
 export declare const Clock: Icon;
@@ -295,8 +366,12 @@ export declare const CloudArrowUp: Icon;
 export declare const CloudArrowUpIcon: Icon;
 export declare const Coffee: Icon;
 export declare const CoffeeIcon: Icon;
+export declare const Coins: Icon;
+export declare const CoinsIcon: Icon;
 export declare const Confetti: Icon;
 export declare const ConfettiIcon: Icon;
+export declare const Copy: Icon;
+export declare const CopyIcon: Icon;
 export declare const CopySimple: Icon;
 export declare const CopySimpleIcon: Icon;
 export declare const CreditCard: Icon;
@@ -305,14 +380,24 @@ export declare const Crown: Icon;
 export declare const CrownIcon: Icon;
 export declare const CurrencyInr: Icon;
 export declare const CurrencyInrIcon: Icon;
+export declare const CursorClick: Icon;
+export declare const CursorClickIcon: Icon;
+export declare const Database: Icon;
+export declare const DatabaseIcon: Icon;
+export declare const Desktop: Icon;
+export declare const DesktopIcon: Icon;
 export declare const DeviceMobile: Icon;
 export declare const DeviceMobileIcon: Icon;
 export declare const DoorOpen: Icon;
 export declare const DoorOpenIcon: Icon;
 export declare const DotsThree: Icon;
 export declare const DotsThreeIcon: Icon;
+export declare const Download: Icon;
+export declare const DownloadIcon: Icon;
 export declare const DownloadSimple: Icon;
 export declare const DownloadSimpleIcon: Icon;
+export declare const Drop: Icon;
+export declare const DropIcon: Icon;
 export declare const Envelope: Icon;
 export declare const EnvelopeIcon: Icon;
 export declare const EnvelopeSimple: Icon;
@@ -323,6 +408,8 @@ export declare const Eye: Icon;
 export declare const EyeIcon: Icon;
 export declare const EyeSlash: Icon;
 export declare const EyeSlashIcon: Icon;
+export declare const FileArrowDown: Icon;
+export declare const FileArrowDownIcon: Icon;
 export declare const FileCsv: Icon;
 export declare const FileCsvIcon: Icon;
 export declare const FilePdf: Icon;
@@ -333,22 +420,38 @@ export declare const Flag: Icon;
 export declare const FlagIcon: Icon;
 export declare const Flashlight: Icon;
 export declare const FlashlightIcon: Icon;
+export declare const Flask: Icon;
+export declare const FlaskIcon: Icon;
+export declare const FloppyDisk: Icon;
+export declare const FloppyDiskIcon: Icon;
+export declare const FlowArrow: Icon;
+export declare const FlowArrowIcon: Icon;
+export declare const ForkKnife: Icon;
+export declare const ForkKnifeIcon: Icon;
 export declare const Funnel: Icon;
 export declare const FunnelIcon: Icon;
 export declare const Gavel: Icon;
 export declare const GavelIcon: Icon;
+export declare const Gear: Icon;
+export declare const GearIcon: Icon;
 export declare const GearSix: Icon;
 export declare const GearSixIcon: Icon;
 export declare const GenderIntersex: Icon;
 export declare const GenderIntersexIcon: Icon;
+export declare const Gift: Icon;
+export declare const GiftIcon: Icon;
 export declare const GithubLogo: Icon;
 export declare const GithubLogoIcon: Icon;
 export declare const Globe: Icon;
 export declare const GlobeIcon: Icon;
+export declare const GlobeSimple: Icon;
+export declare const GlobeSimpleIcon: Icon;
 export declare const GoogleLogo: Icon;
 export declare const GoogleLogoIcon: Icon;
 export declare const Hammer: Icon;
 export declare const HammerIcon: Icon;
+export declare const HandArrowUp: Icon;
+export declare const HandArrowUpIcon: Icon;
 export declare const HandCoins: Icon;
 export declare const HandCoinsIcon: Icon;
 export declare const Handshake: Icon;
@@ -385,16 +488,24 @@ export declare const LinkSimple: Icon;
 export declare const LinkSimpleIcon: Icon;
 export declare const LinkedinLogo: Icon;
 export declare const LinkedinLogoIcon: Icon;
+export declare const List: Icon;
+export declare const ListIcon: Icon;
 export declare const ListBullets: Icon;
 export declare const ListBulletsIcon: Icon;
+export declare const ListChecks: Icon;
+export declare const ListChecksIcon: Icon;
 export declare const ListNumbers: Icon;
 export declare const ListNumbersIcon: Icon;
 export declare const Lock: Icon;
 export declare const LockIcon: Icon;
+export declare const LockKey: Icon;
+export declare const LockKeyIcon: Icon;
 export declare const LockOpen: Icon;
 export declare const LockOpenIcon: Icon;
 export declare const LockSimple: Icon;
 export declare const LockSimpleIcon: Icon;
+export declare const MagicWand: Icon;
+export declare const MagicWandIcon: Icon;
 export declare const MagnifyingGlass: Icon;
 export declare const MagnifyingGlassIcon: Icon;
 export declare const MapPin: Icon;
@@ -409,14 +520,20 @@ export declare const Microphone: Icon;
 export declare const MicrophoneIcon: Icon;
 export declare const MicrophoneSlash: Icon;
 export declare const MicrophoneSlashIcon: Icon;
+export declare const MicrosoftOutlookLogo: Icon;
+export declare const MicrosoftOutlookLogoIcon: Icon;
 export declare const Minus: Icon;
 export declare const MinusIcon: Icon;
+export declare const Money: Icon;
+export declare const MoneyIcon: Icon;
 export declare const Moon: Icon;
 export declare const MoonIcon: Icon;
 export declare const NavigationArrow: Icon;
 export declare const NavigationArrowIcon: Icon;
 export declare const NotePencil: Icon;
 export declare const NotePencilIcon: Icon;
+export declare const Package: Icon;
+export declare const PackageIcon: Icon;
 export declare const PaintBrush: Icon;
 export declare const PaintBrushIcon: Icon;
 export declare const PaperPlaneRight: Icon;
@@ -445,6 +562,8 @@ export declare const PlusCircle: Icon;
 export declare const PlusCircleIcon: Icon;
 export declare const Power: Icon;
 export declare const PowerIcon: Icon;
+export declare const Prohibit: Icon;
+export declare const ProhibitIcon: Icon;
 export declare const Pulse: Icon;
 export declare const PulseIcon: Icon;
 export declare const QrCode: Icon;
@@ -455,8 +574,14 @@ export declare const Quotes: Icon;
 export declare const QuotesIcon: Icon;
 export declare const Receipt: Icon;
 export declare const ReceiptIcon: Icon;
+export declare const Record: Icon;
+export declare const RecordIcon: Icon;
 export declare const RocketLaunch: Icon;
 export declare const RocketLaunchIcon: Icon;
+export declare const Scan: Icon;
+export declare const ScanIcon: Icon;
+export declare const ScanSmiley: Icon;
+export declare const ScanSmileyIcon: Icon;
 export declare const Scissors: Icon;
 export declare const ScissorsIcon: Icon;
 export declare const SealCheck: Icon;
@@ -473,8 +598,12 @@ export declare const SignIn: Icon;
 export declare const SignInIcon: Icon;
 export declare const SignOut: Icon;
 export declare const SignOutIcon: Icon;
+export declare const SlidersHorizontal: Icon;
+export declare const SlidersHorizontalIcon: Icon;
 export declare const Sparkle: Icon;
 export declare const SparkleIcon: Icon;
+export declare const Spinner: Icon;
+export declare const SpinnerIcon: Icon;
 export declare const SquaresFour: Icon;
 export declare const SquaresFourIcon: Icon;
 export declare const Stack: Icon;
@@ -493,6 +622,8 @@ export declare const TextAa: Icon;
 export declare const TextAaIcon: Icon;
 export declare const TextAlignLeft: Icon;
 export declare const TextAlignLeftIcon: Icon;
+export declare const TextT: Icon;
+export declare const TextTIcon: Icon;
 export declare const Ticket: Icon;
 export declare const TicketIcon: Icon;
 export declare const Timer: Icon;
@@ -503,8 +634,14 @@ export declare const Tray: Icon;
 export declare const TrayIcon: Icon;
 export declare const TreeStructure: Icon;
 export declare const TreeStructureIcon: Icon;
+export declare const TrendDown: Icon;
+export declare const TrendDownIcon: Icon;
+export declare const TrendUp: Icon;
+export declare const TrendUpIcon: Icon;
 export declare const Trophy: Icon;
 export declare const TrophyIcon: Icon;
+export declare const UploadSimple: Icon;
+export declare const UploadSimpleIcon: Icon;
 export declare const User: Icon;
 export declare const UserIcon: Icon;
 export declare const UserCircle: Icon;
@@ -533,8 +670,12 @@ export declare const Warning: Icon;
 export declare const WarningIcon: Icon;
 export declare const WarningCircle: Icon;
 export declare const WarningCircleIcon: Icon;
+export declare const WebhooksLogo: Icon;
+export declare const WebhooksLogoIcon: Icon;
 export declare const WhatsappLogo: Icon;
 export declare const WhatsappLogoIcon: Icon;
+export declare const WifiHigh: Icon;
+export declare const WifiHighIcon: Icon;
 export declare const WifiSlash: Icon;
 export declare const WifiSlashIcon: Icon;
 export declare const X: Icon;

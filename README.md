@@ -16,6 +16,8 @@ import { UnGlyph, Ticket } from "@unifesto/unicon/react-native"; // or /react
 <Ticket weight="duotone" size={24} color={accent} />
 ```
 
+On the web, prefer named components (`<Ticket />`): each is its own module, so a page ships only the glyphs it imports. `UnGlyph` looks glyphs up by name and therefore bundles all of them. Components have no hooks, so they work in React Server Components.
+
 Weights: `regular`, `light`, `bold`, `fill`, `duotone`. A weight a glyph doesn't have renders as `regular`. React Native needs `react-native-svg`.
 
 ## Adding or redrawing a glyph

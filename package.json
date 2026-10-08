@@ -6,13 +6,13 @@
   "license": "UNLICENSED",
   "private": false,
   "type": "module",
-  "main": "./dist/glyphs.js",
+  "main": "./dist/glyphs/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/glyphs.js"
+      "default": "./dist/glyphs/index.js"
     },
     "./react": {
       "types": "./dist/index.d.ts",
