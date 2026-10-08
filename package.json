@@ -1,6 +1,6 @@
 {
   "name": "@unifesto/unicon",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Unifesto glyph icons (tintable SVG) for React, Next.js, Expo and React Native",
   "author": "Unifesto Private Limited",
   "license": "UNLICENSED",
