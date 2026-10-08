@@ -44,7 +44,8 @@
     "pack:test": "npm pack --dry-run",
     "version": "npm run build && git add -f -A dist",
     "postversion": "git push && git push --tags",
-    "patch": "git add . && git commit -m 'update' && git push origin main && git version patch"
+    "patch": "git add . && git commit -m 'update' && git push origin main && git version patch",
+    "import:phosphor": "node scripts/import-phosphor.js"
   },
   "keywords": [
     "icons",
@@ -69,14 +70,19 @@
     "static-assets"
   ],
   "peerDependencies": {
-    "react": ">=16.8.0"
+    "react": ">=16.8.0",
+    "react-native-svg": ">=13.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
       "optional": true
+    },
+    "react-native-svg": {
+      "optional": true
     }
   },
   "devDependencies": {
+    "@phosphor-icons/core": "^2.1.1",
     "sharp": "^0.34.5"
   },
   "repository": {

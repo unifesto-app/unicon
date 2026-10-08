@@ -15,6 +15,9 @@ const REACT_DIR = path.join(DIST_DIR, "react");
 const REACT_NATIVE_DIR = path.join(DIST_DIR, "react-native");
 const MANIFEST_PATH = path.join(DIST_DIR, "manifest.json");
 const TYPES_PATH = path.join(DIST_DIR, "index.d.ts");
+const GLYPHS_DIR = path.join(rootDir, "glyphs");
+const GLYPH_WEIGHTS = ["regular", "light", "bold", "fill", "duotone"];
+const GLYPH_VIEWBOX = "0 0 256 256";
 
 // Icon metadata - manually curated for better search
 const ICON_METADATA = {
@@ -137,16 +140,23 @@ const stats = {
   fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2), "utf-8");
   console.log(`\n✓ Generated manifest.json with ${Object.keys(manifest).length} icons`);
 
+  // Build SVG glyphs (fails the build on invalid source SVGs)
+  const glyphNames = buildGlyphs();
+  console.log(`✓ Generated glyphs.js with ${glyphNames.length} glyphs`);
+
   // Generate TypeScript definitions
   generateTypeScriptDefinitions(iconNames, Array.from(categories));
+  fs.appendFileSync(TYPES_PATH, glyphTypes(glyphNames), "utf-8");
   console.log("✓ Generated index.d.ts");
 
   // Generate React component
   generateReactComponent(iconNames);
+  fs.appendFileSync(path.join(REACT_DIR, "index.js"), glyphComponents(glyphNames, "react"), "utf-8");
   console.log("✓ Generated react/index.js");
 
   // Generate React Native component
   generateReactNativeComponent(iconNames);
+  fs.appendFileSync(path.join(REACT_NATIVE_DIR, "index.js"), glyphComponents(glyphNames, "react-native"), "utf-8");
   console.log("✓ Generated react-native/index.js");
 
   // Print summary
@@ -562,4 +572,193 @@ export default UnIcon;
     reactNativeComponent,
     "utf-8"
   );
+}
+
+// ─── Glyphs ──────────────────────────────────────────────────────────────────
+// Source: glyphs/<weight>/<name>.svg. Every glyph needs a regular weight; any
+// other weight it lacks falls back to regular at render time.
+
+const toPascal = (name) =>
+  name.split("-").map((part) => part[0].toUpperCase() + part.slice(1)).join("");
+
+// Parse one source SVG into path entries. A plain path is stored as its `d`
+// string; anything carrying extra attributes becomes { d, rule?, duo? }.
+function parseGlyphSvg(svg, where, errors) {
+  const viewBox = svg.match(/viewBox="([^"]*)"/)?.[1];
+  if (viewBox !== GLYPH_VIEWBOX) errors.push(`${where}: viewBox must be "${GLYPH_VIEWBOX}" (got "${viewBox}")`);
+  if (/stroke/.test(svg)) errors.push(`${where}: has strokes, run Outline Stroke + Flatten before export`);
+
+  const paths = [];
+  const rest = svg
+    .replace(/<\?xml[^>]*>/, "")
+    .replace(/<svg[^>]*>|<\/svg>/g, "")
+    .replace(/<path\s+([^>]*?)\s*\/?>(?:<\/path>)?/g, (_, attrs) => {
+      const a = Object.fromEntries([...attrs.matchAll(/([\w-]+)="([^"]*)"/g)].map((m) => [m[1], m[2]]));
+      for (const key of Object.keys(a)) {
+        if (!["d", "opacity", "fill", "fill-rule", "clip-rule"].includes(key)) errors.push(`${where}: unsupported path attribute "${key}"`);
+      }
+      if (a.fill && a.fill !== "currentColor") errors.push(`${where}: hard-coded fill "${a.fill}", remove it so the glyph can be tinted`);
+      if (!a.d) errors.push(`${where}: path without d`);
+      const rule = a["fill-rule"] === "evenodd" ? "evenodd" : undefined;
+      const duo = a.opacity !== undefined ? true : undefined;
+      paths.push(rule || duo ? { d: a.d, rule, duo } : a.d);
+      return "";
+    });
+  if (rest.trim()) errors.push(`${where}: only <path> elements are supported, found: ${rest.trim().slice(0, 60)}`);
+  return paths;
+}
+
+function buildGlyphs() {
+  const regularDir = path.join(GLYPHS_DIR, "regular");
+  if (!fs.existsSync(regularDir)) return [];
+
+  const svgsIn = (dir) =>
+    fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith(".svg")).map((f) => path.basename(f, ".svg")) : [];
+  const names = svgsIn(regularDir).sort();
+  const errors = [];
+  const data = {};
+
+  for (const weight of GLYPH_WEIGHTS) {
+    for (const name of svgsIn(path.join(GLYPHS_DIR, weight))) {
+      if (!names.includes(name)) errors.push(`${weight}/${name}.svg: no regular/${name}.svg`);
+    }
+  }
+
+  for (const name of names) {
+    data[name] = {};
+    for (const weight of GLYPH_WEIGHTS) {
+      const file = path.join(GLYPHS_DIR, weight, `${name}.svg`);
+      if (fs.existsSync(file)) data[name][weight] = parseGlyphSvg(fs.readFileSync(file, "utf-8"), `${weight}/${name}.svg`, errors);
+    }
+  }
+
+  const pascal = new Map();
+  for (const name of names) {
+    const p = toPascal(name);
+    if (pascal.has(p)) errors.push(`glyph names "${pascal.get(p)}" and "${name}" both export ${p}`);
+    pascal.set(p, name);
+  }
+
+  if (errors.length) {
+    console.error(`\n❌ ${errors.length} glyph error(s):\n  ${errors.join("\n  ")}\n`);
+    process.exit(1);
+  }
+
+  fs.writeFileSync(
+    path.join(DIST_DIR, "glyphs.js"),
+    `// Generated from glyphs/*. Shapes derived from Phosphor Icons (MIT), see LICENSE.\nexport default ${JSON.stringify(data)};\n`,
+    "utf-8"
+  );
+  return names;
+}
+
+function glyphComponents(names, platform) {
+  const native = platform === "react-native";
+  const imports = native
+    ? `import Svg, { Path } from "react-native-svg";\nimport glyphs from "../glyphs.js";`
+    : `import glyphs from "../glyphs.js";`;
+  const svg = native ? "Svg" : `"svg"`;
+  const pathEl = native ? "Path" : `"path"`;
+  const mirror = native
+    ? `mirrored ? [style, { transform: [{ scaleX: -1 }] }] : style`
+    : `mirrored ? { ...style, transform: "scaleX(-1)" } : style`;
+  const defaultColor = native ? `"#000"` : `"currentColor"`;
+  const named = names
+    .map((n) => `export const ${toPascal(n)} = glyph("${n}");\nexport const ${toPascal(n)}Icon = ${toPascal(n)};`)
+    .join("\n");
+
+  return `
+// ─── Glyphs: single-colour SVG icons ────────────────────────────────────────
+${imports}
+
+/**
+ * UnGlyph - tintable SVG icon. Drop-in for Phosphor's props.
+ *
+ * @example
+ * <UnGlyph name="ticket" weight="fill" size={24} color="#fff" />
+ * <Ticket weight="fill" size={24} color="#fff" />
+ */
+export const UnGlyph = React.memo(function UnGlyph({
+  name,
+  weight = "regular",
+  size = 24,
+  color = ${defaultColor},
+  mirrored = false,
+  duotoneColor,
+  duotoneOpacity = 0.2,
+  style,
+  ...props
+}) {
+  const glyph = glyphs[name];
+  if (!glyph) {
+    console.warn(\`UnGlyph: glyph "\${name}" not found\`);
+    return null;
+  }
+  const paths = glyph[weight] || glyph.regular;
+  return React.createElement(
+    ${svg},
+    {${native ? "" : ` xmlns: "http://www.w3.org/2000/svg",`} viewBox: "${GLYPH_VIEWBOX}", width: size, height: size, fill: color, color, style: ${mirror}, ...props },
+    paths.map((p, i) =>
+      typeof p === "string"
+        ? React.createElement(${pathEl}, { key: i, d: p })
+        : React.createElement(${pathEl}, {
+            key: i,
+            d: p.d,
+            fillRule: p.rule,
+            ...(p.duo && { fill: duotoneColor ?? color, opacity: duotoneOpacity }),
+          })
+    )
+  );
+});
+
+function glyph(name) {
+  const Component = (props) => React.createElement(UnGlyph, { ...props, name });
+  Component.displayName = name;
+  return Component;
+}
+
+export const glyphNames = ${JSON.stringify(names)};
+
+${named}
+`;
+}
+
+function glyphTypes(names) {
+  const named = names
+    .map((n) => `export declare const ${toPascal(n)}: Icon;\nexport declare const ${toPascal(n)}Icon: Icon;`)
+    .join("\n");
+  return `
+/** Available glyph names (single-colour SVG icons) */
+export type GlyphName =
+${names.map((n) => `  | "${n}"`).join("\n") || "  never"};
+
+/** Glyph weight. Weights a glyph doesn't define render as "regular". */
+export type IconWeight = "thin" | "light" | "regular" | "bold" | "fill" | "duotone";
+
+/** Props shared by UnGlyph and every named glyph component */
+export interface IconProps {
+  /** Width and height (default: 24) */
+  size?: number | string;
+  /** Fill colour (default: "#000" native, "currentColor" web) */
+  color?: string;
+  /** Weight (default: "regular") */
+  weight?: IconWeight;
+  /** Flip horizontally, e.g. for RTL */
+  mirrored?: boolean;
+  /** Colour of the duotone background layer (default: color) */
+  duotoneColor?: string;
+  /** Opacity of the duotone background layer (default: 0.2) */
+  duotoneOpacity?: number;
+  style?: any;
+  [prop: string]: any;
+}
+
+/** A glyph component, e.g. \`Ticket\` */
+export type Icon = React.ComponentType<IconProps>;
+
+export declare const UnGlyph: React.FC<IconProps & { name: GlyphName }>;
+export declare const glyphNames: GlyphName[];
+
+${named}
+`;
 }

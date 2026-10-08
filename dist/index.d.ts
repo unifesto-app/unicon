@@ -153,3 +153,529 @@ export interface UnIconPropsNative {
 export declare const UnIconNative: React.FC<UnIconPropsNative>;
 
 export default manifest;
+
+/** Available glyph names (single-colour SVG icons) */
+export type GlyphName =
+  | "android-logo"
+  | "apple-logo"
+  | "arrow-circle-up"
+  | "arrow-counter-clockwise"
+  | "arrow-down"
+  | "arrow-right"
+  | "arrow-square-out"
+  | "arrow-up"
+  | "arrow-up-right"
+  | "arrows-clockwise"
+  | "arrows-left-right"
+  | "article"
+  | "at"
+  | "bank"
+  | "bed"
+  | "bell"
+  | "bell-ringing"
+  | "bell-simple"
+  | "briefcase"
+  | "broadcast"
+  | "buildings"
+  | "calendar-blank"
+  | "calendar-dots"
+  | "calendar-plus"
+  | "calendar-x"
+  | "camera"
+  | "cards"
+  | "caret-down"
+  | "caret-left"
+  | "caret-right"
+  | "certificate"
+  | "chart-bar"
+  | "chart-line-up"
+  | "chat-circle-dots"
+  | "chats-circle"
+  | "check"
+  | "check-circle"
+  | "circle"
+  | "circle-dashed"
+  | "clipboard-text"
+  | "clock"
+  | "clock-counter-clockwise"
+  | "cloud-arrow-down"
+  | "cloud-arrow-up"
+  | "coffee"
+  | "confetti"
+  | "copy-simple"
+  | "credit-card"
+  | "crown"
+  | "currency-inr"
+  | "device-mobile"
+  | "door-open"
+  | "dots-three"
+  | "download-simple"
+  | "envelope"
+  | "envelope-simple"
+  | "export"
+  | "eye"
+  | "eye-slash"
+  | "file-csv"
+  | "file-pdf"
+  | "file-text"
+  | "flag"
+  | "flashlight"
+  | "funnel"
+  | "gavel"
+  | "gear-six"
+  | "gender-intersex"
+  | "globe"
+  | "hand-coins"
+  | "handshake"
+  | "hash"
+  | "heart"
+  | "hourglass"
+  | "hourglass-medium"
+  | "house"
+  | "identification-card"
+  | "image-square"
+  | "info"
+  | "instagram-logo"
+  | "lifebuoy"
+  | "lightbulb"
+  | "lightning"
+  | "link"
+  | "link-break"
+  | "link-simple"
+  | "linkedin-logo"
+  | "list-bullets"
+  | "list-numbers"
+  | "lock"
+  | "lock-open"
+  | "lock-simple"
+  | "magnifying-glass"
+  | "map-pin"
+  | "medal"
+  | "megaphone"
+  | "megaphone-simple"
+  | "microphone"
+  | "microphone-slash"
+  | "minus"
+  | "moon"
+  | "navigation-arrow"
+  | "note-pencil"
+  | "paint-brush"
+  | "paper-plane-right"
+  | "paper-plane-tilt"
+  | "paperclip"
+  | "pause"
+  | "pencil-simple"
+  | "percent"
+  | "phone"
+  | "phone-disconnect"
+  | "play"
+  | "play-circle"
+  | "plus"
+  | "plus-circle"
+  | "power"
+  | "pulse"
+  | "qr-code"
+  | "question"
+  | "quotes"
+  | "receipt"
+  | "rocket-launch"
+  | "scissors"
+  | "seal-check"
+  | "seal-percent"
+  | "share-network"
+  | "shield-check"
+  | "shield-warning"
+  | "sign-in"
+  | "sign-out"
+  | "sparkle"
+  | "squares-four"
+  | "stack"
+  | "star"
+  | "stop"
+  | "sun"
+  | "tag"
+  | "terminal"
+  | "text-aa"
+  | "text-align-left"
+  | "ticket"
+  | "timer"
+  | "trash"
+  | "tray"
+  | "tree-structure"
+  | "trophy"
+  | "user"
+  | "user-circle"
+  | "user-focus"
+  | "user-minus"
+  | "user-plus"
+  | "user-switch"
+  | "users"
+  | "users-four"
+  | "users-three"
+  | "video-camera"
+  | "video-camera-slash"
+  | "wallet"
+  | "warning"
+  | "warning-circle"
+  | "whatsapp-logo"
+  | "wifi-slash"
+  | "x"
+  | "x-circle";
+
+/** Glyph weight. Weights a glyph doesn't define render as "regular". */
+export type IconWeight = "thin" | "light" | "regular" | "bold" | "fill" | "duotone";
+
+/** Props shared by UnGlyph and every named glyph component */
+export interface IconProps {
+  /** Width and height (default: 24) */
+  size?: number | string;
+  /** Fill colour (default: "#000" native, "currentColor" web) */
+  color?: string;
+  /** Weight (default: "regular") */
+  weight?: IconWeight;
+  /** Flip horizontally, e.g. for RTL */
+  mirrored?: boolean;
+  /** Colour of the duotone background layer (default: color) */
+  duotoneColor?: string;
+  /** Opacity of the duotone background layer (default: 0.2) */
+  duotoneOpacity?: number;
+  style?: any;
+  [prop: string]: any;
+}
+
+/** A glyph component, e.g. `Ticket` */
+export type Icon = React.ComponentType<IconProps>;
+
+export declare const UnGlyph: React.FC<IconProps & { name: GlyphName }>;
+export declare const glyphNames: GlyphName[];
+
+export declare const AndroidLogo: Icon;
+export declare const AndroidLogoIcon: Icon;
+export declare const AppleLogo: Icon;
+export declare const AppleLogoIcon: Icon;
+export declare const ArrowCircleUp: Icon;
+export declare const ArrowCircleUpIcon: Icon;
+export declare const ArrowCounterClockwise: Icon;
+export declare const ArrowCounterClockwiseIcon: Icon;
+export declare const ArrowDown: Icon;
+export declare const ArrowDownIcon: Icon;
+export declare const ArrowRight: Icon;
+export declare const ArrowRightIcon: Icon;
+export declare const ArrowSquareOut: Icon;
+export declare const ArrowSquareOutIcon: Icon;
+export declare const ArrowUp: Icon;
+export declare const ArrowUpIcon: Icon;
+export declare const ArrowUpRight: Icon;
+export declare const ArrowUpRightIcon: Icon;
+export declare const ArrowsClockwise: Icon;
+export declare const ArrowsClockwiseIcon: Icon;
+export declare const ArrowsLeftRight: Icon;
+export declare const ArrowsLeftRightIcon: Icon;
+export declare const Article: Icon;
+export declare const ArticleIcon: Icon;
+export declare const At: Icon;
+export declare const AtIcon: Icon;
+export declare const Bank: Icon;
+export declare const BankIcon: Icon;
+export declare const Bed: Icon;
+export declare const BedIcon: Icon;
+export declare const Bell: Icon;
+export declare const BellIcon: Icon;
+export declare const BellRinging: Icon;
+export declare const BellRingingIcon: Icon;
+export declare const BellSimple: Icon;
+export declare const BellSimpleIcon: Icon;
+export declare const Briefcase: Icon;
+export declare const BriefcaseIcon: Icon;
+export declare const Broadcast: Icon;
+export declare const BroadcastIcon: Icon;
+export declare const Buildings: Icon;
+export declare const BuildingsIcon: Icon;
+export declare const CalendarBlank: Icon;
+export declare const CalendarBlankIcon: Icon;
+export declare const CalendarDots: Icon;
+export declare const CalendarDotsIcon: Icon;
+export declare const CalendarPlus: Icon;
+export declare const CalendarPlusIcon: Icon;
+export declare const CalendarX: Icon;
+export declare const CalendarXIcon: Icon;
+export declare const Camera: Icon;
+export declare const CameraIcon: Icon;
+export declare const Cards: Icon;
+export declare const CardsIcon: Icon;
+export declare const CaretDown: Icon;
+export declare const CaretDownIcon: Icon;
+export declare const CaretLeft: Icon;
+export declare const CaretLeftIcon: Icon;
+export declare const CaretRight: Icon;
+export declare const CaretRightIcon: Icon;
+export declare const Certificate: Icon;
+export declare const CertificateIcon: Icon;
+export declare const ChartBar: Icon;
+export declare const ChartBarIcon: Icon;
+export declare const ChartLineUp: Icon;
+export declare const ChartLineUpIcon: Icon;
+export declare const ChatCircleDots: Icon;
+export declare const ChatCircleDotsIcon: Icon;
+export declare const ChatsCircle: Icon;
+export declare const ChatsCircleIcon: Icon;
+export declare const Check: Icon;
+export declare const CheckIcon: Icon;
+export declare const CheckCircle: Icon;
+export declare const CheckCircleIcon: Icon;
+export declare const Circle: Icon;
+export declare const CircleIcon: Icon;
+export declare const CircleDashed: Icon;
+export declare const CircleDashedIcon: Icon;
+export declare const ClipboardText: Icon;
+export declare const ClipboardTextIcon: Icon;
+export declare const Clock: Icon;
+export declare const ClockIcon: Icon;
+export declare const ClockCounterClockwise: Icon;
+export declare const ClockCounterClockwiseIcon: Icon;
+export declare const CloudArrowDown: Icon;
+export declare const CloudArrowDownIcon: Icon;
+export declare const CloudArrowUp: Icon;
+export declare const CloudArrowUpIcon: Icon;
+export declare const Coffee: Icon;
+export declare const CoffeeIcon: Icon;
+export declare const Confetti: Icon;
+export declare const ConfettiIcon: Icon;
+export declare const CopySimple: Icon;
+export declare const CopySimpleIcon: Icon;
+export declare const CreditCard: Icon;
+export declare const CreditCardIcon: Icon;
+export declare const Crown: Icon;
+export declare const CrownIcon: Icon;
+export declare const CurrencyInr: Icon;
+export declare const CurrencyInrIcon: Icon;
+export declare const DeviceMobile: Icon;
+export declare const DeviceMobileIcon: Icon;
+export declare const DoorOpen: Icon;
+export declare const DoorOpenIcon: Icon;
+export declare const DotsThree: Icon;
+export declare const DotsThreeIcon: Icon;
+export declare const DownloadSimple: Icon;
+export declare const DownloadSimpleIcon: Icon;
+export declare const Envelope: Icon;
+export declare const EnvelopeIcon: Icon;
+export declare const EnvelopeSimple: Icon;
+export declare const EnvelopeSimpleIcon: Icon;
+export declare const Export: Icon;
+export declare const ExportIcon: Icon;
+export declare const Eye: Icon;
+export declare const EyeIcon: Icon;
+export declare const EyeSlash: Icon;
+export declare const EyeSlashIcon: Icon;
+export declare const FileCsv: Icon;
+export declare const FileCsvIcon: Icon;
+export declare const FilePdf: Icon;
+export declare const FilePdfIcon: Icon;
+export declare const FileText: Icon;
+export declare const FileTextIcon: Icon;
+export declare const Flag: Icon;
+export declare const FlagIcon: Icon;
+export declare const Flashlight: Icon;
+export declare const FlashlightIcon: Icon;
+export declare const Funnel: Icon;
+export declare const FunnelIcon: Icon;
+export declare const Gavel: Icon;
+export declare const GavelIcon: Icon;
+export declare const GearSix: Icon;
+export declare const GearSixIcon: Icon;
+export declare const GenderIntersex: Icon;
+export declare const GenderIntersexIcon: Icon;
+export declare const Globe: Icon;
+export declare const GlobeIcon: Icon;
+export declare const HandCoins: Icon;
+export declare const HandCoinsIcon: Icon;
+export declare const Handshake: Icon;
+export declare const HandshakeIcon: Icon;
+export declare const Hash: Icon;
+export declare const HashIcon: Icon;
+export declare const Heart: Icon;
+export declare const HeartIcon: Icon;
+export declare const Hourglass: Icon;
+export declare const HourglassIcon: Icon;
+export declare const HourglassMedium: Icon;
+export declare const HourglassMediumIcon: Icon;
+export declare const House: Icon;
+export declare const HouseIcon: Icon;
+export declare const IdentificationCard: Icon;
+export declare const IdentificationCardIcon: Icon;
+export declare const ImageSquare: Icon;
+export declare const ImageSquareIcon: Icon;
+export declare const Info: Icon;
+export declare const InfoIcon: Icon;
+export declare const InstagramLogo: Icon;
+export declare const InstagramLogoIcon: Icon;
+export declare const Lifebuoy: Icon;
+export declare const LifebuoyIcon: Icon;
+export declare const Lightbulb: Icon;
+export declare const LightbulbIcon: Icon;
+export declare const Lightning: Icon;
+export declare const LightningIcon: Icon;
+export declare const Link: Icon;
+export declare const LinkIcon: Icon;
+export declare const LinkBreak: Icon;
+export declare const LinkBreakIcon: Icon;
+export declare const LinkSimple: Icon;
+export declare const LinkSimpleIcon: Icon;
+export declare const LinkedinLogo: Icon;
+export declare const LinkedinLogoIcon: Icon;
+export declare const ListBullets: Icon;
+export declare const ListBulletsIcon: Icon;
+export declare const ListNumbers: Icon;
+export declare const ListNumbersIcon: Icon;
+export declare const Lock: Icon;
+export declare const LockIcon: Icon;
+export declare const LockOpen: Icon;
+export declare const LockOpenIcon: Icon;
+export declare const LockSimple: Icon;
+export declare const LockSimpleIcon: Icon;
+export declare const MagnifyingGlass: Icon;
+export declare const MagnifyingGlassIcon: Icon;
+export declare const MapPin: Icon;
+export declare const MapPinIcon: Icon;
+export declare const Medal: Icon;
+export declare const MedalIcon: Icon;
+export declare const Megaphone: Icon;
+export declare const MegaphoneIcon: Icon;
+export declare const MegaphoneSimple: Icon;
+export declare const MegaphoneSimpleIcon: Icon;
+export declare const Microphone: Icon;
+export declare const MicrophoneIcon: Icon;
+export declare const MicrophoneSlash: Icon;
+export declare const MicrophoneSlashIcon: Icon;
+export declare const Minus: Icon;
+export declare const MinusIcon: Icon;
+export declare const Moon: Icon;
+export declare const MoonIcon: Icon;
+export declare const NavigationArrow: Icon;
+export declare const NavigationArrowIcon: Icon;
+export declare const NotePencil: Icon;
+export declare const NotePencilIcon: Icon;
+export declare const PaintBrush: Icon;
+export declare const PaintBrushIcon: Icon;
+export declare const PaperPlaneRight: Icon;
+export declare const PaperPlaneRightIcon: Icon;
+export declare const PaperPlaneTilt: Icon;
+export declare const PaperPlaneTiltIcon: Icon;
+export declare const Paperclip: Icon;
+export declare const PaperclipIcon: Icon;
+export declare const Pause: Icon;
+export declare const PauseIcon: Icon;
+export declare const PencilSimple: Icon;
+export declare const PencilSimpleIcon: Icon;
+export declare const Percent: Icon;
+export declare const PercentIcon: Icon;
+export declare const Phone: Icon;
+export declare const PhoneIcon: Icon;
+export declare const PhoneDisconnect: Icon;
+export declare const PhoneDisconnectIcon: Icon;
+export declare const Play: Icon;
+export declare const PlayIcon: Icon;
+export declare const PlayCircle: Icon;
+export declare const PlayCircleIcon: Icon;
+export declare const Plus: Icon;
+export declare const PlusIcon: Icon;
+export declare const PlusCircle: Icon;
+export declare const PlusCircleIcon: Icon;
+export declare const Power: Icon;
+export declare const PowerIcon: Icon;
+export declare const Pulse: Icon;
+export declare const PulseIcon: Icon;
+export declare const QrCode: Icon;
+export declare const QrCodeIcon: Icon;
+export declare const Question: Icon;
+export declare const QuestionIcon: Icon;
+export declare const Quotes: Icon;
+export declare const QuotesIcon: Icon;
+export declare const Receipt: Icon;
+export declare const ReceiptIcon: Icon;
+export declare const RocketLaunch: Icon;
+export declare const RocketLaunchIcon: Icon;
+export declare const Scissors: Icon;
+export declare const ScissorsIcon: Icon;
+export declare const SealCheck: Icon;
+export declare const SealCheckIcon: Icon;
+export declare const SealPercent: Icon;
+export declare const SealPercentIcon: Icon;
+export declare const ShareNetwork: Icon;
+export declare const ShareNetworkIcon: Icon;
+export declare const ShieldCheck: Icon;
+export declare const ShieldCheckIcon: Icon;
+export declare const ShieldWarning: Icon;
+export declare const ShieldWarningIcon: Icon;
+export declare const SignIn: Icon;
+export declare const SignInIcon: Icon;
+export declare const SignOut: Icon;
+export declare const SignOutIcon: Icon;
+export declare const Sparkle: Icon;
+export declare const SparkleIcon: Icon;
+export declare const SquaresFour: Icon;
+export declare const SquaresFourIcon: Icon;
+export declare const Stack: Icon;
+export declare const StackIcon: Icon;
+export declare const Star: Icon;
+export declare const StarIcon: Icon;
+export declare const Stop: Icon;
+export declare const StopIcon: Icon;
+export declare const Sun: Icon;
+export declare const SunIcon: Icon;
+export declare const Tag: Icon;
+export declare const TagIcon: Icon;
+export declare const Terminal: Icon;
+export declare const TerminalIcon: Icon;
+export declare const TextAa: Icon;
+export declare const TextAaIcon: Icon;
+export declare const TextAlignLeft: Icon;
+export declare const TextAlignLeftIcon: Icon;
+export declare const Ticket: Icon;
+export declare const TicketIcon: Icon;
+export declare const Timer: Icon;
+export declare const TimerIcon: Icon;
+export declare const Trash: Icon;
+export declare const TrashIcon: Icon;
+export declare const Tray: Icon;
+export declare const TrayIcon: Icon;
+export declare const TreeStructure: Icon;
+export declare const TreeStructureIcon: Icon;
+export declare const Trophy: Icon;
+export declare const TrophyIcon: Icon;
+export declare const User: Icon;
+export declare const UserIcon: Icon;
+export declare const UserCircle: Icon;
+export declare const UserCircleIcon: Icon;
+export declare const UserFocus: Icon;
+export declare const UserFocusIcon: Icon;
+export declare const UserMinus: Icon;
+export declare const UserMinusIcon: Icon;
+export declare const UserPlus: Icon;
+export declare const UserPlusIcon: Icon;
+export declare const UserSwitch: Icon;
+export declare const UserSwitchIcon: Icon;
+export declare const Users: Icon;
+export declare const UsersIcon: Icon;
+export declare const UsersFour: Icon;
+export declare const UsersFourIcon: Icon;
+export declare const UsersThree: Icon;
+export declare const UsersThreeIcon: Icon;
+export declare const VideoCamera: Icon;
+export declare const VideoCameraIcon: Icon;
+export declare const VideoCameraSlash: Icon;
+export declare const VideoCameraSlashIcon: Icon;
+export declare const Wallet: Icon;
+export declare const WalletIcon: Icon;
+export declare const Warning: Icon;
+export declare const WarningIcon: Icon;
+export declare const WarningCircle: Icon;
+export declare const WarningCircleIcon: Icon;
+export declare const WhatsappLogo: Icon;
+export declare const WhatsappLogoIcon: Icon;
+export declare const WifiSlash: Icon;
+export declare const WifiSlashIcon: Icon;
+export declare const X: Icon;
+export declare const XIcon: Icon;
+export declare const XCircle: Icon;
+export declare const XCircleIcon: Icon;

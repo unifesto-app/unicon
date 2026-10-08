@@ -187,3 +187,386 @@ export const iconNames = [
 ];
 
 export default UnIcon;
+
+// ─── Glyphs: single-colour SVG icons ────────────────────────────────────────
+import Svg, { Path } from "react-native-svg";
+import glyphs from "../glyphs.js";
+
+/**
+ * UnGlyph - tintable SVG icon. Drop-in for Phosphor's props.
+ *
+ * @example
+ * <UnGlyph name="ticket" weight="fill" size={24} color="#fff" />
+ * <Ticket weight="fill" size={24} color="#fff" />
+ */
+export const UnGlyph = React.memo(function UnGlyph({
+  name,
+  weight = "regular",
+  size = 24,
+  color = "#000",
+  mirrored = false,
+  duotoneColor,
+  duotoneOpacity = 0.2,
+  style,
+  ...props
+}) {
+  const glyph = glyphs[name];
+  if (!glyph) {
+    console.warn(`UnGlyph: glyph "${name}" not found`);
+    return null;
+  }
+  const paths = glyph[weight] || glyph.regular;
+  return React.createElement(
+    Svg,
+    { viewBox: "0 0 256 256", width: size, height: size, fill: color, color, style: mirrored ? [style, { transform: [{ scaleX: -1 }] }] : style, ...props },
+    paths.map((p, i) =>
+      typeof p === "string"
+        ? React.createElement(Path, { key: i, d: p })
+        : React.createElement(Path, {
+            key: i,
+            d: p.d,
+            fillRule: p.rule,
+            ...(p.duo && { fill: duotoneColor ?? color, opacity: duotoneOpacity }),
+          })
+    )
+  );
+});
+
+function glyph(name) {
+  const Component = (props) => React.createElement(UnGlyph, { ...props, name });
+  Component.displayName = name;
+  return Component;
+}
+
+export const glyphNames = ["android-logo","apple-logo","arrow-circle-up","arrow-counter-clockwise","arrow-down","arrow-right","arrow-square-out","arrow-up","arrow-up-right","arrows-clockwise","arrows-left-right","article","at","bank","bed","bell","bell-ringing","bell-simple","briefcase","broadcast","buildings","calendar-blank","calendar-dots","calendar-plus","calendar-x","camera","cards","caret-down","caret-left","caret-right","certificate","chart-bar","chart-line-up","chat-circle-dots","chats-circle","check","check-circle","circle","circle-dashed","clipboard-text","clock","clock-counter-clockwise","cloud-arrow-down","cloud-arrow-up","coffee","confetti","copy-simple","credit-card","crown","currency-inr","device-mobile","door-open","dots-three","download-simple","envelope","envelope-simple","export","eye","eye-slash","file-csv","file-pdf","file-text","flag","flashlight","funnel","gavel","gear-six","gender-intersex","globe","hand-coins","handshake","hash","heart","hourglass","hourglass-medium","house","identification-card","image-square","info","instagram-logo","lifebuoy","lightbulb","lightning","link","link-break","link-simple","linkedin-logo","list-bullets","list-numbers","lock","lock-open","lock-simple","magnifying-glass","map-pin","medal","megaphone","megaphone-simple","microphone","microphone-slash","minus","moon","navigation-arrow","note-pencil","paint-brush","paper-plane-right","paper-plane-tilt","paperclip","pause","pencil-simple","percent","phone","phone-disconnect","play","play-circle","plus","plus-circle","power","pulse","qr-code","question","quotes","receipt","rocket-launch","scissors","seal-check","seal-percent","share-network","shield-check","shield-warning","sign-in","sign-out","sparkle","squares-four","stack","star","stop","sun","tag","terminal","text-aa","text-align-left","ticket","timer","trash","tray","tree-structure","trophy","user","user-circle","user-focus","user-minus","user-plus","user-switch","users","users-four","users-three","video-camera","video-camera-slash","wallet","warning","warning-circle","whatsapp-logo","wifi-slash","x","x-circle"];
+
+export const AndroidLogo = glyph("android-logo");
+export const AndroidLogoIcon = AndroidLogo;
+export const AppleLogo = glyph("apple-logo");
+export const AppleLogoIcon = AppleLogo;
+export const ArrowCircleUp = glyph("arrow-circle-up");
+export const ArrowCircleUpIcon = ArrowCircleUp;
+export const ArrowCounterClockwise = glyph("arrow-counter-clockwise");
+export const ArrowCounterClockwiseIcon = ArrowCounterClockwise;
+export const ArrowDown = glyph("arrow-down");
+export const ArrowDownIcon = ArrowDown;
+export const ArrowRight = glyph("arrow-right");
+export const ArrowRightIcon = ArrowRight;
+export const ArrowSquareOut = glyph("arrow-square-out");
+export const ArrowSquareOutIcon = ArrowSquareOut;
+export const ArrowUp = glyph("arrow-up");
+export const ArrowUpIcon = ArrowUp;
+export const ArrowUpRight = glyph("arrow-up-right");
+export const ArrowUpRightIcon = ArrowUpRight;
+export const ArrowsClockwise = glyph("arrows-clockwise");
+export const ArrowsClockwiseIcon = ArrowsClockwise;
+export const ArrowsLeftRight = glyph("arrows-left-right");
+export const ArrowsLeftRightIcon = ArrowsLeftRight;
+export const Article = glyph("article");
+export const ArticleIcon = Article;
+export const At = glyph("at");
+export const AtIcon = At;
+export const Bank = glyph("bank");
+export const BankIcon = Bank;
+export const Bed = glyph("bed");
+export const BedIcon = Bed;
+export const Bell = glyph("bell");
+export const BellIcon = Bell;
+export const BellRinging = glyph("bell-ringing");
+export const BellRingingIcon = BellRinging;
+export const BellSimple = glyph("bell-simple");
+export const BellSimpleIcon = BellSimple;
+export const Briefcase = glyph("briefcase");
+export const BriefcaseIcon = Briefcase;
+export const Broadcast = glyph("broadcast");
+export const BroadcastIcon = Broadcast;
+export const Buildings = glyph("buildings");
+export const BuildingsIcon = Buildings;
+export const CalendarBlank = glyph("calendar-blank");
+export const CalendarBlankIcon = CalendarBlank;
+export const CalendarDots = glyph("calendar-dots");
+export const CalendarDotsIcon = CalendarDots;
+export const CalendarPlus = glyph("calendar-plus");
+export const CalendarPlusIcon = CalendarPlus;
+export const CalendarX = glyph("calendar-x");
+export const CalendarXIcon = CalendarX;
+export const Camera = glyph("camera");
+export const CameraIcon = Camera;
+export const Cards = glyph("cards");
+export const CardsIcon = Cards;
+export const CaretDown = glyph("caret-down");
+export const CaretDownIcon = CaretDown;
+export const CaretLeft = glyph("caret-left");
+export const CaretLeftIcon = CaretLeft;
+export const CaretRight = glyph("caret-right");
+export const CaretRightIcon = CaretRight;
+export const Certificate = glyph("certificate");
+export const CertificateIcon = Certificate;
+export const ChartBar = glyph("chart-bar");
+export const ChartBarIcon = ChartBar;
+export const ChartLineUp = glyph("chart-line-up");
+export const ChartLineUpIcon = ChartLineUp;
+export const ChatCircleDots = glyph("chat-circle-dots");
+export const ChatCircleDotsIcon = ChatCircleDots;
+export const ChatsCircle = glyph("chats-circle");
+export const ChatsCircleIcon = ChatsCircle;
+export const Check = glyph("check");
+export const CheckIcon = Check;
+export const CheckCircle = glyph("check-circle");
+export const CheckCircleIcon = CheckCircle;
+export const Circle = glyph("circle");
+export const CircleIcon = Circle;
+export const CircleDashed = glyph("circle-dashed");
+export const CircleDashedIcon = CircleDashed;
+export const ClipboardText = glyph("clipboard-text");
+export const ClipboardTextIcon = ClipboardText;
+export const Clock = glyph("clock");
+export const ClockIcon = Clock;
+export const ClockCounterClockwise = glyph("clock-counter-clockwise");
+export const ClockCounterClockwiseIcon = ClockCounterClockwise;
+export const CloudArrowDown = glyph("cloud-arrow-down");
+export const CloudArrowDownIcon = CloudArrowDown;
+export const CloudArrowUp = glyph("cloud-arrow-up");
+export const CloudArrowUpIcon = CloudArrowUp;
+export const Coffee = glyph("coffee");
+export const CoffeeIcon = Coffee;
+export const Confetti = glyph("confetti");
+export const ConfettiIcon = Confetti;
+export const CopySimple = glyph("copy-simple");
+export const CopySimpleIcon = CopySimple;
+export const CreditCard = glyph("credit-card");
+export const CreditCardIcon = CreditCard;
+export const Crown = glyph("crown");
+export const CrownIcon = Crown;
+export const CurrencyInr = glyph("currency-inr");
+export const CurrencyInrIcon = CurrencyInr;
+export const DeviceMobile = glyph("device-mobile");
+export const DeviceMobileIcon = DeviceMobile;
+export const DoorOpen = glyph("door-open");
+export const DoorOpenIcon = DoorOpen;
+export const DotsThree = glyph("dots-three");
+export const DotsThreeIcon = DotsThree;
+export const DownloadSimple = glyph("download-simple");
+export const DownloadSimpleIcon = DownloadSimple;
+export const Envelope = glyph("envelope");
+export const EnvelopeIcon = Envelope;
+export const EnvelopeSimple = glyph("envelope-simple");
+export const EnvelopeSimpleIcon = EnvelopeSimple;
+export const Export = glyph("export");
+export const ExportIcon = Export;
+export const Eye = glyph("eye");
+export const EyeIcon = Eye;
+export const EyeSlash = glyph("eye-slash");
+export const EyeSlashIcon = EyeSlash;
+export const FileCsv = glyph("file-csv");
+export const FileCsvIcon = FileCsv;
+export const FilePdf = glyph("file-pdf");
+export const FilePdfIcon = FilePdf;
+export const FileText = glyph("file-text");
+export const FileTextIcon = FileText;
+export const Flag = glyph("flag");
+export const FlagIcon = Flag;
+export const Flashlight = glyph("flashlight");
+export const FlashlightIcon = Flashlight;
+export const Funnel = glyph("funnel");
+export const FunnelIcon = Funnel;
+export const Gavel = glyph("gavel");
+export const GavelIcon = Gavel;
+export const GearSix = glyph("gear-six");
+export const GearSixIcon = GearSix;
+export const GenderIntersex = glyph("gender-intersex");
+export const GenderIntersexIcon = GenderIntersex;
+export const Globe = glyph("globe");
+export const GlobeIcon = Globe;
+export const HandCoins = glyph("hand-coins");
+export const HandCoinsIcon = HandCoins;
+export const Handshake = glyph("handshake");
+export const HandshakeIcon = Handshake;
+export const Hash = glyph("hash");
+export const HashIcon = Hash;
+export const Heart = glyph("heart");
+export const HeartIcon = Heart;
+export const Hourglass = glyph("hourglass");
+export const HourglassIcon = Hourglass;
+export const HourglassMedium = glyph("hourglass-medium");
+export const HourglassMediumIcon = HourglassMedium;
+export const House = glyph("house");
+export const HouseIcon = House;
+export const IdentificationCard = glyph("identification-card");
+export const IdentificationCardIcon = IdentificationCard;
+export const ImageSquare = glyph("image-square");
+export const ImageSquareIcon = ImageSquare;
+export const Info = glyph("info");
+export const InfoIcon = Info;
+export const InstagramLogo = glyph("instagram-logo");
+export const InstagramLogoIcon = InstagramLogo;
+export const Lifebuoy = glyph("lifebuoy");
+export const LifebuoyIcon = Lifebuoy;
+export const Lightbulb = glyph("lightbulb");
+export const LightbulbIcon = Lightbulb;
+export const Lightning = glyph("lightning");
+export const LightningIcon = Lightning;
+export const Link = glyph("link");
+export const LinkIcon = Link;
+export const LinkBreak = glyph("link-break");
+export const LinkBreakIcon = LinkBreak;
+export const LinkSimple = glyph("link-simple");
+export const LinkSimpleIcon = LinkSimple;
+export const LinkedinLogo = glyph("linkedin-logo");
+export const LinkedinLogoIcon = LinkedinLogo;
+export const ListBullets = glyph("list-bullets");
+export const ListBulletsIcon = ListBullets;
+export const ListNumbers = glyph("list-numbers");
+export const ListNumbersIcon = ListNumbers;
+export const Lock = glyph("lock");
+export const LockIcon = Lock;
+export const LockOpen = glyph("lock-open");
+export const LockOpenIcon = LockOpen;
+export const LockSimple = glyph("lock-simple");
+export const LockSimpleIcon = LockSimple;
+export const MagnifyingGlass = glyph("magnifying-glass");
+export const MagnifyingGlassIcon = MagnifyingGlass;
+export const MapPin = glyph("map-pin");
+export const MapPinIcon = MapPin;
+export const Medal = glyph("medal");
+export const MedalIcon = Medal;
+export const Megaphone = glyph("megaphone");
+export const MegaphoneIcon = Megaphone;
+export const MegaphoneSimple = glyph("megaphone-simple");
+export const MegaphoneSimpleIcon = MegaphoneSimple;
+export const Microphone = glyph("microphone");
+export const MicrophoneIcon = Microphone;
+export const MicrophoneSlash = glyph("microphone-slash");
+export const MicrophoneSlashIcon = MicrophoneSlash;
+export const Minus = glyph("minus");
+export const MinusIcon = Minus;
+export const Moon = glyph("moon");
+export const MoonIcon = Moon;
+export const NavigationArrow = glyph("navigation-arrow");
+export const NavigationArrowIcon = NavigationArrow;
+export const NotePencil = glyph("note-pencil");
+export const NotePencilIcon = NotePencil;
+export const PaintBrush = glyph("paint-brush");
+export const PaintBrushIcon = PaintBrush;
+export const PaperPlaneRight = glyph("paper-plane-right");
+export const PaperPlaneRightIcon = PaperPlaneRight;
+export const PaperPlaneTilt = glyph("paper-plane-tilt");
+export const PaperPlaneTiltIcon = PaperPlaneTilt;
+export const Paperclip = glyph("paperclip");
+export const PaperclipIcon = Paperclip;
+export const Pause = glyph("pause");
+export const PauseIcon = Pause;
+export const PencilSimple = glyph("pencil-simple");
+export const PencilSimpleIcon = PencilSimple;
+export const Percent = glyph("percent");
+export const PercentIcon = Percent;
+export const Phone = glyph("phone");
+export const PhoneIcon = Phone;
+export const PhoneDisconnect = glyph("phone-disconnect");
+export const PhoneDisconnectIcon = PhoneDisconnect;
+export const Play = glyph("play");
+export const PlayIcon = Play;
+export const PlayCircle = glyph("play-circle");
+export const PlayCircleIcon = PlayCircle;
+export const Plus = glyph("plus");
+export const PlusIcon = Plus;
+export const PlusCircle = glyph("plus-circle");
+export const PlusCircleIcon = PlusCircle;
+export const Power = glyph("power");
+export const PowerIcon = Power;
+export const Pulse = glyph("pulse");
+export const PulseIcon = Pulse;
+export const QrCode = glyph("qr-code");
+export const QrCodeIcon = QrCode;
+export const Question = glyph("question");
+export const QuestionIcon = Question;
+export const Quotes = glyph("quotes");
+export const QuotesIcon = Quotes;
+export const Receipt = glyph("receipt");
+export const ReceiptIcon = Receipt;
+export const RocketLaunch = glyph("rocket-launch");
+export const RocketLaunchIcon = RocketLaunch;
+export const Scissors = glyph("scissors");
+export const ScissorsIcon = Scissors;
+export const SealCheck = glyph("seal-check");
+export const SealCheckIcon = SealCheck;
+export const SealPercent = glyph("seal-percent");
+export const SealPercentIcon = SealPercent;
+export const ShareNetwork = glyph("share-network");
+export const ShareNetworkIcon = ShareNetwork;
+export const ShieldCheck = glyph("shield-check");
+export const ShieldCheckIcon = ShieldCheck;
+export const ShieldWarning = glyph("shield-warning");
+export const ShieldWarningIcon = ShieldWarning;
+export const SignIn = glyph("sign-in");
+export const SignInIcon = SignIn;
+export const SignOut = glyph("sign-out");
+export const SignOutIcon = SignOut;
+export const Sparkle = glyph("sparkle");
+export const SparkleIcon = Sparkle;
+export const SquaresFour = glyph("squares-four");
+export const SquaresFourIcon = SquaresFour;
+export const Stack = glyph("stack");
+export const StackIcon = Stack;
+export const Star = glyph("star");
+export const StarIcon = Star;
+export const Stop = glyph("stop");
+export const StopIcon = Stop;
+export const Sun = glyph("sun");
+export const SunIcon = Sun;
+export const Tag = glyph("tag");
+export const TagIcon = Tag;
+export const Terminal = glyph("terminal");
+export const TerminalIcon = Terminal;
+export const TextAa = glyph("text-aa");
+export const TextAaIcon = TextAa;
+export const TextAlignLeft = glyph("text-align-left");
+export const TextAlignLeftIcon = TextAlignLeft;
+export const Ticket = glyph("ticket");
+export const TicketIcon = Ticket;
+export const Timer = glyph("timer");
+export const TimerIcon = Timer;
+export const Trash = glyph("trash");
+export const TrashIcon = Trash;
+export const Tray = glyph("tray");
+export const TrayIcon = Tray;
+export const TreeStructure = glyph("tree-structure");
+export const TreeStructureIcon = TreeStructure;
+export const Trophy = glyph("trophy");
+export const TrophyIcon = Trophy;
+export const User = glyph("user");
+export const UserIcon = User;
+export const UserCircle = glyph("user-circle");
+export const UserCircleIcon = UserCircle;
+export const UserFocus = glyph("user-focus");
+export const UserFocusIcon = UserFocus;
+export const UserMinus = glyph("user-minus");
+export const UserMinusIcon = UserMinus;
+export const UserPlus = glyph("user-plus");
+export const UserPlusIcon = UserPlus;
+export const UserSwitch = glyph("user-switch");
+export const UserSwitchIcon = UserSwitch;
+export const Users = glyph("users");
+export const UsersIcon = Users;
+export const UsersFour = glyph("users-four");
+export const UsersFourIcon = UsersFour;
+export const UsersThree = glyph("users-three");
+export const UsersThreeIcon = UsersThree;
+export const VideoCamera = glyph("video-camera");
+export const VideoCameraIcon = VideoCamera;
+export const VideoCameraSlash = glyph("video-camera-slash");
+export const VideoCameraSlashIcon = VideoCameraSlash;
+export const Wallet = glyph("wallet");
+export const WalletIcon = Wallet;
+export const Warning = glyph("warning");
+export const WarningIcon = Warning;
+export const WarningCircle = glyph("warning-circle");
+export const WarningCircleIcon = WarningCircle;
+export const WhatsappLogo = glyph("whatsapp-logo");
+export const WhatsappLogoIcon = WhatsappLogo;
+export const WifiSlash = glyph("wifi-slash");
+export const WifiSlashIcon = WifiSlash;
+export const X = glyph("x");
+export const XIcon = X;
+export const XCircle = glyph("x-circle");
+export const XCircleIcon = XCircle;

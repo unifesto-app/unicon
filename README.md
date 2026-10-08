@@ -76,6 +76,27 @@ export default function App() {
 }
 ```
 
+## Glyphs (tintable SVG icons)
+
+Single-colour icons that take a `color` and a `weight`. The API matches Phosphor, so `import { Ticket } from "phosphor-react-native"` becomes `import { Ticket } from "@unifesto/unicon/react-native"`.
+
+```tsx
+import { UnGlyph, Ticket } from "@unifesto/unicon/react-native"; // or /react
+
+<UnGlyph name="ticket" weight="fill" size={24} color="#fff" />
+<Ticket weight="duotone" size={24} color={accent} />
+```
+
+Weights: `regular`, `light`, `bold`, `fill`, `duotone`. A weight a glyph doesn't have renders as `regular`. React Native needs `react-native-svg`.
+
+### Adding or redrawing a glyph
+
+1. Draw on a **256×256** frame. Before exporting: Outline Stroke, then Flatten. No hard-coded fill colours.
+2. Export SVGs to `glyphs/<weight>/<name>.svg` (kebab-case, e.g. `glyphs/fill/calendar-blank.svg`). `regular` is required; other weights are optional.
+3. `npm run build`. It fails with a clear message if an SVG has strokes, non-path elements, a wrong viewBox or a fill colour.
+
+To start from a Phosphor shape: `npm run import:phosphor -- CalendarBlank`. It never overwrites a redrawn file.
+
 ## TypeScript
 
 ```ts

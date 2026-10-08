@@ -5,6 +5,14 @@ All notable changes to UnIcon will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-10-08
+
+### Added
+- **Glyphs**: 165 single-colour, tintable SVG icons (`UnGlyph` + Phosphor-compatible named components like `Ticket`, `TicketIcon`), weights regular/light/bold/fill/duotone. Shapes start from Phosphor Icons (MIT) and get redrawn over time.
+- `glyphs/<weight>/<name>.svg` source folder, validated on build (256 viewBox, paths only, no strokes or hard-coded fills).
+- `npm run import:phosphor -- <Name...>` to pull a starting shape from Phosphor.
+- Optional peer dependency `react-native-svg` (needed for glyphs on React Native).
+
 ## [1.0.0] - 2024-06-02
 
 ### 🎉 Initial Release
